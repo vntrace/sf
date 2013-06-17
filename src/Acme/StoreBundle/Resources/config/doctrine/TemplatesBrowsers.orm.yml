@@ -1,0 +1,18 @@
+Acme\StoreBundle\Entity\TemplatesBrowsers:
+    type: entity
+    table: templates_browsers
+    fields:
+        templateId:
+            id: true
+            type: string
+            length: 15
+            fixed: false
+            nullable: false
+            column: template_id
+        browserId:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: browser_id
+    lifecycleCallbacks: {  }

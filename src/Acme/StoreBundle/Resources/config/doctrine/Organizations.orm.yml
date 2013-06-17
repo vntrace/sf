@@ -1,0 +1,17 @@
+Acme\StoreBundle\Entity\Organizations:
+    type: entity
+    table: organizations
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+    lifecycleCallbacks: {  }

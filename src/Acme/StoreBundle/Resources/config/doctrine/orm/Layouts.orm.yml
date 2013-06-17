@@ -1,0 +1,25 @@
+Layouts:
+    type: entity
+    table: layouts
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        type:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+    manyToMany:
+        template:
+            targetEntity: Templates
+            cascade: {  }
+            mappedBy: layout
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

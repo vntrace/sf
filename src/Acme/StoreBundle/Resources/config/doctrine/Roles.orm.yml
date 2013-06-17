@@ -1,0 +1,30 @@
+Acme\StoreBundle\Entity\Roles:
+    type: entity
+    table: roles
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 32
+            fixed: false
+            nullable: false
+        description:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+    manyToMany:
+        user:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: role
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

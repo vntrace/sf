@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}Store Bundle{% endblock %}</title>
+
+    {# Assets #}
+	<link rel="stylesheet" type="text/css" href="{{ asset('store/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('store/css/style.css') }}">
+</head>
+<body>
+
+	{% block header %}
+		{{ include('AcmeStoreBundle:Layout:header.html.twig') }}
+	{% endblock %}
+
+	{% block body %}{% endblock %}
+
+	{% block footer %}
+		{{ include('AcmeStoreBundle:Layout:footer.html.twig') }}
+	{% endblock %}
+
+	<script type="text/javascript" src="{{ asset('store/js/jquery-1.9.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('store/js/bootstrap.min.js') }}"></script>
+</body>
+</html>

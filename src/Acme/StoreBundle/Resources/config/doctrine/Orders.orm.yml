@@ -1,0 +1,55 @@
+Acme\StoreBundle\Entity\Orders:
+    type: entity
+    table: orders
+    fields:
+        id:
+            id: true
+            type: string
+            length: 15
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        price:
+            type: float
+            nullable: false
+        created:
+            type: integer
+            unsigned: false
+            nullable: false
+        updated:
+            type: integer
+            unsigned: false
+            nullable: false
+        status:
+            type: boolean
+            nullable: false
+    manyToOne:
+        template:
+            targetEntity: Templates
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                template_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        author:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                author_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        buyer:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                buyer_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

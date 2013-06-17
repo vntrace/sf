@@ -1,0 +1,30 @@
+TemplatesVersions:
+    type: entity
+    table: templates_versions
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        item:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        status:
+            type: boolean
+            nullable: false
+    manyToOne:
+        template:
+            targetEntity: Templates
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                template_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
