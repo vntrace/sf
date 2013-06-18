@@ -1,7 +1,7 @@
-acme_user_signin
+acme_user_signin:
     pattern:  /signin
     defaults: { _controller: AcmeUserBundle:Default:signin }
 
-acme_user_signout
+acme_user_signout:
     pattern:  /singout
     defaults: { _controller: AcmeUserBundle:Default:signout }
