@@ -4,11 +4,13 @@ namespace Acme\StoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * Users
  * @Entity @HasLifecycleCallbacks
  */
-class Users
+class Users implements UserInterface, \Serializable
 {
     /**
      * @var integer
@@ -385,5 +387,13 @@ class Users
     public function getRole()
     {
         return $this->role;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        return $this->salt;
     }
 }

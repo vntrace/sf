@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
+
+use Acme\StoreBundle\Entity\Users;
 
 class UserController extends Controller 
 {
@@ -17,6 +20,20 @@ class UserController extends Controller
 	 */
 	public function signinAction()
 	{
+
+		$factory = $this->get('security.encoder_factory');
+
+		var_dump('<pre>', $factory);
+
+		$user = new Users();
+
+		$encoder = $factory->getEncoder($user);
+		$password = $encoder->encodePassword('ryanpass', $user->getSalt());
+
+		var_dump($password);
+
+		die;
+
 		$loginForm = $this->createFormBuilder(array())
 								->add('username', 'text', array(
 									'constraints' => array(
@@ -34,6 +51,26 @@ class UserController extends Controller
 								))
 								->getForm();
 
+		$signupForm = $this->createFormBuilder(array())
+								->add('username', 'text', array(
+									'constraints' => array(
+										new NotBlank(),
+										new Length(array('min' => 5))
+									)
+								))
+								->add('email', 'text', array(
+									'constraints' => array(
+										new NotBlank(),
+										new Email(),
+									)
+								))
+								->add('password', 'repeated', array(
+									'type' => 'password',
+									'required' => true,
+									'first_options' => array('label' => 'Password'),
+									'second_options' => array('label' => 'Repeat Password')
+								))->getForm();
+
 		if($this->get('request')->getMethod() === 'POST') {
 			$loginForm->bind($this->getRequest());
 
@@ -42,7 +79,7 @@ class UserController extends Controller
 			}
 		}
 
-		return array('form' => $loginForm->createView());
+		return array('form' => $loginForm->createView(), 'signupForm' => $signupForm->createView());
 	}
 
 	public function signoutAction()

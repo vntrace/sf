@@ -9,20 +9,30 @@
       	</div>
 
       	<div class="row">
-      		<div class="span7">
-      			<form class="form-horizontal" method="post" action="app_dev.php/check_login">
+      		<div class="span6">
+      			<form class="form-horizontal" method="post">
       				
       				{{ form_row(form.username) }}
       				{{ form_row(form.password) }}
 
-	                <div class="form-actions">
+  	                <div class="form-actions">
 				        <input type="submit" value="Signin" class="btn btn-primary" />
-	                </div>
+  	                </div>
 
       			</form>
 
       		</div>
-      		<div class="span5"></div>
+      		<div class="span6">
+                <form class="form-horizontal" method="post" action="{{ path('acme_store_user_signup') }}">
+                    {{ form_row(signupForm.username) }}
+                    {{ form_row(signupForm.email) }}
+                    {{ form_row(signupForm.password) }}
+
+                    <div class="form-actions">
+                        <input type="submit" value="Signup" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
       	</div>
 	</div>
 
