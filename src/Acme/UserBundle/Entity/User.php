@@ -2,110 +2,55 @@
 namespace Acme\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Acme\UserBundle\Entity\User
- *
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="Acme\UserBundle\Entity\UserRepository")
+ * @ORM\Entity
  */
-class User implements UserInterface, \Serializable
+class User
 {
 	/**
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
 
-    /**
-     * @ORM\Column(type="string", length=25, unique=true)
-     */
-    private $username;
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank()
+	 * @Assert\Email()
+	 */
+	protected $email;
 
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
-    private $salt;
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank()
+	 */
+	protected $plainPassword;
 
-    /**
-     * @ORM\Column(type="string", length=40)
-     */
-    private $password;
+	public function getId()
+	{
+		return $this->id;
+	}
 
-    /**
-     * @ORM\Column(type="string", length=60, unique=true)
-     */
-    private $email;
+	public function getEmail()
+	{
+		return $this->email;
+	}
 
-    /**
-     * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive;
+	public function setEmail($email)
+	{
+		$this->email = $email;
+	}
 
-    public function __construct()
-    {
-        $this->isActive = true;
-        $this->salt = md5(uniqid(null, true));
-    }
+	public function getPlainPassword()
+	{
+		return $this->plainPassword;
+	}
 
-    /**
-     * @inheritDoc
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function eraseCredentials()
-    {
-    }
-
-    /**
-     * @see \Serializable::serialize()
-     */
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-        ));
-    }
-
-    /**
-     * @see \Serializable::unserialize()
-     */
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-        ) = unserialize($serialized);
-    }
+	public function setPlainPassword($password)
+	{
+		$this->plainPassword = $password;
+	}
 }

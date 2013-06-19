@@ -20,20 +20,6 @@ class UserController extends Controller
 	 */
 	public function signinAction()
 	{
-
-		$factory = $this->get('security.encoder_factory');
-
-		var_dump('<pre>', $factory);
-
-		$user = new Users();
-
-		$encoder = $factory->getEncoder($user);
-		$password = $encoder->encodePassword('ryanpass', $user->getSalt());
-
-		var_dump($password);
-
-		die;
-
 		$loginForm = $this->createFormBuilder(array())
 								->add('username', 'text', array(
 									'constraints' => array(
