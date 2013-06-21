@@ -1,3 +1,7 @@
-acme_security_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: AcmeSecurityBundle:Default:index }
+account_create:
+  pattern: /create
+  defaults: { _controller: AcmeSecurityBundle:User:create }
+
+account_reg:
+  pattern: /reg
+  defaults: { _controller: AcmeSecurityBundle:User:register }

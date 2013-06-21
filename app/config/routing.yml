@@ -1,4 +1,3 @@
 acme_security:
     resource: "@AcmeSecurityBundle/Resources/config/routing.yml"
-    prefix:   /
-
+    prefix:   /security
