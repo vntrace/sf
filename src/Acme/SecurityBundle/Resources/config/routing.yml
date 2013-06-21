@@ -1,0 +1,7 @@
+account_create:
+  pattern: /create
+  defaults: { _controller: AcmeSecurityBundle:User:create }
+
+account_reg:
+  pattern: /reg
+  defaults: { _controller: AcmeSecurityBundle:User:register }
