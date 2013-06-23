@@ -1,3 +1,7 @@
+account_home:
+  pattern: /
+  defaults: { _controller: AcmeSecurityBundle:User:index }
+
 account_create:
   pattern: /create
   defaults: { _controller: AcmeSecurityBundle:User:create }
@@ -5,3 +9,13 @@ account_create:
 account_reg:
   pattern: /reg
   defaults: { _controller: AcmeSecurityBundle:User:register }
+
+account_login:
+  pattern: /login
+  defaults: { _controller: AcmeSecurityBundle:User:login }
+
+account_check_login:
+  pattern: /check_login
+  
+account_logout:
+  pattern: /logout

@@ -9,6 +9,11 @@ use Acme\SecurityBundle\Form\Model\Registration;
 
 class UserController extends Controller
 {
+    public function indexAction()
+    {
+        return $this->render('AcmeSecurityBundle:User:index.html.twig');
+    }
+    
     public function registerAction()
     {
         $registration = new Registration();
@@ -53,4 +58,19 @@ class UserController extends Controller
 	        array('form' => $form->createView())
 	    );
 	}
+    
+    public function loginAction()
+    {
+        return $this->render('AcmeSecurityBundle:User:login.html.twig');
+    }
+    
+    public function checkLoginAction()
+    {
+        
+    }
+    
+    public function logoutAction()
+    {
+        
+    }
 }
