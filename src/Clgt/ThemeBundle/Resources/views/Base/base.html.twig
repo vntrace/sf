@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        <link rel="stylesheet" href="/store/css/bootstrap.min.css"/>
+    </head>
+    <body>
+        {% block header %}
+            {{ include('ClgtThemeBundle:Base:header.html.twig')}}
+        {% endblock %}
+            
+        {% block body%}{% endblock %}
+            
+        {% block footer %}
+            {{ include('ClgtThemeBundle:Base:footer.html.twig')}}
+        {% endblock %}
+            
+        {% block script %}
+            <script src="/store/js/jquery-1.9.1.min.js"></script>
+            <script src="/store/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </body>
+</html>

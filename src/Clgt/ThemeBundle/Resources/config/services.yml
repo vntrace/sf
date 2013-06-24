@@ -1,0 +1,7 @@
+parameters:
+#    clgt_theme.example.class: Clgt\ThemeBundle\Example
+
+services:
+#    clgt_theme.example:
+#        class: %clgt_theme.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

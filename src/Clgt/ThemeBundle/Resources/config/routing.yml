@@ -1,0 +1,3 @@
+clgt_theme_homepage:
+    pattern:  /
+    defaults: { _controller: ClgtThemeBundle:Default:index }
