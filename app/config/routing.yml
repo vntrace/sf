@@ -5,7 +5,3 @@ clgt_theme:
 clgt_user:
     resource: "@ClgtUserBundle/Resources/config/routing.yml"
     prefix:   /clgt/user
-
-acme_security:
-    resource: "@AcmeSecurityBundle/Resources/config/routing.yml"
-    prefix:   /security

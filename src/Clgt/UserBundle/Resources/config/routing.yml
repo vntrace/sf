@@ -1,1 +1,5 @@
+clgt_user_login:
+    pattern: /auth
 
+clgt_user_logout:
+    pattern: /logout
